@@ -1,0 +1,100 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
+
+#startScreen,
+#gameCanvas {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 800px;
+  height: 600px;
+  border: 5px dotted white;
+  background-color: black;
+}
+
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+}
+
+#startButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+#startButton:hover {
+  background-color: #0056b3;
+}
+
+.middleLine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center */
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  border-radius: 1px;
+}
+
+.player1Score,
+.player2Score {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  color: white;
+  font-size: 24px;
+}
+
+.player1Score {
+  left: 25%;
+}
+
+.player2Score {
+  right: 10px;
+}
+
+.player1Paddle,
+.player2Paddle {
+  background-color: white;
+  width: 10px;
+  height: 100px;
+  position: absolute;
+}
+
+.player1Paddle {
+  left: 10px;
+  top: calc(50% - 40px); /* vertically center paddle */
+}
+
+.player2Paddle {
+  right: 10px;
+  top: calc(50% - 40px);
+}
+
+.ball {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  top: calc(50% - 7.5px); /* Vertically center the ball */
+  left: calc(50% - 7.5px); /* Horizontally center the ball */
+}
