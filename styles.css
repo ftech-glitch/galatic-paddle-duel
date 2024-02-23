@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   height: 100vh;
   width: 100vw;
@@ -44,57 +49,56 @@ h1 {
 }
 
 .middleLine {
+  border-left: 5px dashed white;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%); /* center */
-  width: 2px;
+  width: 1px;
   height: 100%;
-  background-color: white;
-  border-radius: 1px;
+  transform: translateX(-50%);
 }
 
-.player1Score,
-.player2Score {
+#player1Score,
+#player2Score {
   position: absolute;
-  top: 10px;
-  left: 50%;
+  top: 12px;
   color: white;
   font-size: 24px;
 }
 
-.player1Score {
-  left: 25%;
+#player1Score {
+  left: 40%;
 }
 
-.player2Score {
-  right: 10px;
+#player2Score {
+  right: 40%;
 }
 
-.player1Paddle,
-.player2Paddle {
+#player1Paddle,
+#player2Paddle {
   background-color: white;
   width: 10px;
   height: 100px;
   position: absolute;
 }
 
-.player1Paddle {
+#player1Paddle {
   left: 10px;
-  top: calc(50% - 40px); /* vertically center paddle */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.player2Paddle {
+#player2Paddle {
   right: 10px;
-  top: calc(50% - 40px);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.ball {
+#ball {
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  background-color: white;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  background-color: red;
   position: absolute;
-  top: calc(50% - 7.5px); /* Vertically center the ball */
-  left: calc(50% - 7.5px); /* Horizontally center the ball */
 }
