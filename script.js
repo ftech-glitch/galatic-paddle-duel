@@ -12,6 +12,8 @@ let upPressed = false;
 let downPressed = false;
 let wPressed = false;
 let sPressed = false;
+let player1Score = document.getElementById("player1Score");
+let player2Score = document.getElementById("player2Score");
 
 // keyboard controls
 document.addEventListener("keydown", handleKeyDown);
@@ -55,16 +57,39 @@ function handleKeyUp(event) {
 
 // formula: v = sqrt ( Vx^2 + Vy^2 ) (pythagoras theorem) => to ensure smooth diagonal movement of elements
 
-let Vx = -2;
-let Vy = -3; // increase value to move faster, become positive to change direction
+let Vx = 5;
+let Vy = 10; // increase value to move faster, become positive to change direction
 let V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2));
 
 function reset() {
   ball.style.left = "50%";
   ball.style.left = "50%";
-  Vx = -2;
-  Vy = -3;
+  Vx = -5;
+  Vy = -10;
   V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2));
+}
+
+function checkCollision(activepaddle) {
+  let balltop = ball.offsetTop;
+  let ballbottom = ball.offsetTop + ball.offsetHeight;
+  let ballleft = ball.offsetLeft;
+  let ballright = ball.offsetLeft + ball.offsetWidth;
+
+  let paddletop = activepaddle.offsetTop;
+  let paddlebottom = activepaddle.offsetTop + activepaddle.offsetHeight;
+  let paddleleft = activepaddle.offsetLeft;
+  let paddleright = activepaddle.offsetLeft + activepaddle.offsetWidth;
+
+  if (
+    ballbottom > paddletop &&
+    balltop < paddlebottom &&
+    ballright > paddleleft &&
+    ballleft < paddleright
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function gameLoop() {
@@ -92,9 +117,11 @@ function gameLoop() {
 
   // reflect ball or set ball to reset position
   if (ball.offsetLeft < 0) {
+    player2Score.innerHTML = parseInt(player2Score.innerHTML) + 1; // +1 to player 2 score
     reset();
   }
   if (ball.offsetLeft > gameCanvas.offsetWidth - ball.offsetWidth) {
+    player1Score.innerHTML = parseInt(player1Score.innerHTML) + 1; // +1 to player 1 score
     reset();
   }
   if (ball.offsetTop < 0) {
@@ -103,22 +130,63 @@ function gameLoop() {
   if (ball.offsetTop > gameCanvas.offsetHeight - ball.offsetHeight) {
     Vy = -Vy; // bottom
   }
+  // check collision
+  let paddle;
+  if (ball.offsetLeft < gameCanvas.offsetWidth / 2) {
+    paddle = player1Paddle;
+  } else {
+    paddle = player2Paddle;
+  }
+
+  let ballcenterY = ball.offsetTop + ball.offsetHeight / 2;
+  let paddlecenterY = paddle.offsetTop + paddle.offsetHeight / 2;
+
+  let angle = 0;
+
+  if (checkCollision(paddle)) {
+    if (paddle == player1Paddle) {
+      if (ballcenterY < paddlecenterY) {
+        angle = -Math.PI / 4; // ball will bounce 45 degree
+      } else if (ballcenterY > paddlecenterY) {
+        angle = Math.PI / 4;
+      } else {
+        angle = 0;
+      }
+    } else if (paddle == player2Paddle) {
+      if (ballcenterY < paddlecenterY) {
+        angle = (-3 * Math.PI) / 4; // ball will bounce 135 degree
+      } else if (ballcenterY > paddlecenterY) {
+        angle = (3 * Math.PI) / 4;
+      } else {
+        angle = 0;
+      }
+    }
+
+    V = V + 0.2; // increases ball speed when there is a collision
+    Vx = V * Math.cos(angle); // convert to degree
+    Vy = V * Math.sin(angle);
+  }
 
   // move ball
   ball.style.left = ball.offsetLeft + Vx + "px";
   ball.style.top = ball.offsetTop + Vy + "px";
-  requestAnimationFrame(gameLoop);
+
+  if (player1Score.innerHTML >= 10 || player2Score.innerHTML >= 10) {
+    if (player1Score.innerHTML > player2Score.innerHTML) {
+      alert("Mission Completed. Player 1 wins!");
+    } else {
+      alert("Mission Completed. Player 2 wins!");
+    }
+  } else {
+    requestAnimationFrame(gameLoop);
+  }
 }
 gameLoop();
 
 // things to do
-// reflect ball when it hits paddle
-// update score board
-// check if game is over
-// alert message mentioning player 1 / player 2 won
 // beautify css
 // readme
-// instructions
+// game instructions
 
 // (if there's extra time)
 // audio

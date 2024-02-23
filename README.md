@@ -1,2 +1,6 @@
 # galatic-paddle-duel
-SEI49 project 1
+
+reference videos:
+
+https://www.youtube.com/watch?v=uCHUvjFEihI
+https://www.youtube.com/watch?v=-kweMvxVMk8
