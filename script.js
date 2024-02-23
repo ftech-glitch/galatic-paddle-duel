@@ -53,7 +53,7 @@ function handleKeyUp(event) {
 // update position of ball by adding velocity to the position of the ball
 // check if ball is hitting the wall or paddle
 
-// formula: v = sqrt ( Vx^2 + Vy^2 ) (pythagoras theorem)
+// formula: v = sqrt ( Vx^2 + Vy^2 ) (pythagoras theorem) => to ensure smooth diagonal movement of elements
 
 let Vx = -2;
 let Vy = -3; // increase value to move faster, become positive to change direction
@@ -116,6 +116,7 @@ gameLoop();
 // update score board
 // check if game is over
 // alert message mentioning player 1 / player 2 won
+// beautify css
 // readme
 // instructions
 
