@@ -105,10 +105,20 @@ function gameLoop() {
   }
 
   // move ball
-  ball.style.left = ball.offsetLeft + Vx + "px"; // keeps adding 1
-  ball.style.top = ball.offsetTop + Vy + "px"; // keeps adding 5
+  ball.style.left = ball.offsetLeft + Vx + "px";
+  ball.style.top = ball.offsetTop + Vy + "px";
   requestAnimationFrame(gameLoop);
 }
 gameLoop();
 
-//
+// things to do
+// reflect ball when it hits paddle
+// update score board
+// check if game is over
+// alert message mentioning player 1 / player 2 won
+// readme
+// instructions
+
+// (if there's extra time)
+// audio
+// power-ups
