@@ -74,6 +74,22 @@ h1 {
   right: 40%;
 }
 
+#player1,
+#player2 {
+  position: absolute;
+  top: 12px;
+  color: white;
+  font-size: 24px;
+}
+
+#player1 {
+  left: 5%;
+}
+
+#player2 {
+  right: 5%;
+}
+
 #player1Paddle,
 #player2Paddle {
   background-color: white;

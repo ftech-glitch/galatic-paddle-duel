@@ -172,10 +172,12 @@ function gameLoop() {
   ball.style.top = ball.offsetTop + Vy + "px";
 
   if (player1Score.innerHTML >= 10 || player2Score.innerHTML >= 10) {
-    if (player1Score.innerHTML > player2Score.innerHTML) {
+    if (player1Score.innerHTML >= 10) {
       alert("Mission Completed. Player 1 wins!");
+      location.reload();
     } else {
       alert("Mission Completed. Player 2 wins!");
+      location.reload();
     }
   } else {
     requestAnimationFrame(gameLoop);
