@@ -10,19 +10,57 @@
     <div id="startScreen">
       <h1>Galatic Space Duel</h1>
       <button id="startButton">start</button>
+      <button id="howToPlay">how to play</button>
+      <div class="instructionsMenu" style="display: none">
+        <p>
+          <strong
+            >In this epic space battle, you'll control your paddle using the
+            arrow keys:</strong
+          >
+        </p>
+        <p><strong>Player 1 (Left Paddle):</strong></p>
+        <ul>
+          <li>Move up: W key</li>
+          <li>Move down: S key</li>
+        </ul>
+        <p><strong>Player 2 (Right Paddle):</strong></p>
+        <ul>
+          <li>Move up: Arrow Up key</li>
+          <li>Move down: Arrow Down key</li>
+        </ul>
+        <p><strong>Scoring:</strong></p>
+        <ul>
+          <li>
+            When the ball passes the opponent's paddle, the opposing player
+            scores a point.
+          </li>
+          <li>The game ends when one player reaches a score of 10.</li>
+        </ul>
+        <p>Wishing you cosmic success.</p>
+        <button id="closeInstructions">CLOSE</button>
+      </div>
     </div>
     <div id="gameCanvas" style="display: none">
       <div class="scoreboard">
         <div id="player1Score">0</div>
         <div id="player2Score">0</div>
-        <div id="player1">Player 1</div>
-        <div id="player2">Player 2</div>
+        <div id="player1">P1</div>
+        <div id="player2">P2</div>
       </div>
 
       <div class="middleLine"></div>
       <div id="player1Paddle"></div>
       <div id="player2Paddle"></div>
       <div id="ball"></div>
+    </div>
+    <div id="gameOverP1" style="display: none">
+      <h2>Player 1 wins!</h2>
+      <button id="restart1">Back to Main Menu</button>
+    </div>
+
+    <div id="gameOverP2" style="display: none">
+      <h2>Player 2 wins!</h2>
+      <button id="restart2">Back to Main Menu</button>
     </div>
 
     <script src="script.js"></script>

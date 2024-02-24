@@ -1,3 +1,13 @@
+// toggle "how to play" menu
+document.getElementById("howToPlay").addEventListener("click", function () {
+  document.querySelector(".instructionsMenu").style.display = "block";
+});
+document
+  .getElementById("closeInstructions")
+  .addEventListener("click", function () {
+    document.querySelector(".instructionsMenu").style.display = "none";
+  });
+
 // when the 'start' button is clicked, hide startScreen and show gameCanvas
 document.getElementById("startButton").addEventListener("click", () => {
   document.getElementById("startScreen").style.display = "none";
@@ -173,11 +183,15 @@ function gameLoop() {
 
   if (player1Score.innerHTML >= 10 || player2Score.innerHTML >= 10) {
     if (player1Score.innerHTML >= 10) {
-      alert("Mission Completed. Player 1 wins!");
-      location.reload();
+      document.getElementById("gameOverP1").style.display = "block";
+      document.getElementById("restart1").addEventListener("click", () => {
+        location.reload();
+      });
     } else {
-      alert("Mission Completed. Player 2 wins!");
-      location.reload();
+      document.getElementById("gameOverP2").style.display = "block";
+      document.getElementById("restart2").addEventListener("click", () => {
+        location.reload();
+      });
     }
   } else {
     requestAnimationFrame(gameLoop);
@@ -186,10 +200,5 @@ function gameLoop() {
 gameLoop();
 
 // things to do
-// beautify css
 // readme
-// game instructions
-
-// (if there's extra time)
-// audio
-// power-ups
+// deploy online
