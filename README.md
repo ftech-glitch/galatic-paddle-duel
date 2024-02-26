@@ -9,6 +9,10 @@ Galactic Paddle Duel is an exciting space-themed browser game where players enga
 
 Players control their paddles to deflect a cosmic ball and score points against their opponent.
 
+## Technologies Used
+
+Javascript, HTML, CSS
+
 ## Getting Started
 
 To play Galatic Paddle Duel, follow these steps:
