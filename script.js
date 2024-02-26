@@ -62,14 +62,9 @@ function handleKeyUp(event) {
   }
 }
 
-// update position of ball by adding velocity to the position of the ball
-// check if ball is hitting the wall or paddle
-
-// formula: v = sqrt ( Vx^2 + Vy^2 ) (pythagoras theorem) => to ensure smooth diagonal movement of elements
-
 let Vx = 5;
-let Vy = 10; // increase value to move faster
-let V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2));
+let Vy = 10;
+let V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2)); // formula: v = sqrt ( Vx^2 + Vy^2 ) (pythagoras theorem)
 
 function reset1() {
   ball.style.left = "50%";
@@ -143,10 +138,10 @@ function gameLoop() {
     reset1();
   }
   if (ball.offsetTop < 0) {
-    Vy = -Vy; // top
+    Vy = -Vy;
   }
   if (ball.offsetTop > gameCanvas.offsetHeight - ball.offsetHeight) {
-    Vy = -Vy; // bottom
+    Vy = -Vy;
   }
   // check collision
   let paddle;
@@ -180,7 +175,7 @@ function gameLoop() {
       }
     }
 
-    V = V + 0.2; // increases ball speed when there is a collision
+    V = V + 0.3; // increases ball speed when there is a collision
     Vx = V * Math.cos(angle); // convert to degree
     Vy = V * Math.sin(angle);
   }
