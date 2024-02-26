@@ -206,5 +206,3 @@ function gameLoop() {
   }
 }
 gameLoop();
-
-// readme
