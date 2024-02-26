@@ -68,14 +68,22 @@ function handleKeyUp(event) {
 // formula: v = sqrt ( Vx^2 + Vy^2 ) (pythagoras theorem) => to ensure smooth diagonal movement of elements
 
 let Vx = 5;
-let Vy = 10; // increase value to move faster, become positive to change direction
+let Vy = 10; // increase value to move faster
 let V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2));
 
-function reset() {
+function reset1() {
   ball.style.left = "50%";
   ball.style.left = "50%";
   Vx = -5;
-  Vy = -10;
+  Vy = -8;
+  V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2));
+}
+
+function reset2() {
+  ball.style.left = "50%";
+  ball.style.left = "50%";
+  Vx = 5;
+  Vy = -8;
   V = Math.sqrt(Math.pow(Vx, 2) + Math.pow(Vy, 2));
 }
 
@@ -128,11 +136,11 @@ function gameLoop() {
   // reflect ball or set ball to reset position
   if (ball.offsetLeft < 0) {
     player2Score.innerHTML = parseInt(player2Score.innerHTML) + 1; // +1 to player 2 score
-    reset();
+    reset2();
   }
   if (ball.offsetLeft > gameCanvas.offsetWidth - ball.offsetWidth) {
     player1Score.innerHTML = parseInt(player1Score.innerHTML) + 1; // +1 to player 1 score
-    reset();
+    reset1();
   }
   if (ball.offsetTop < 0) {
     Vy = -Vy; // top
@@ -199,6 +207,4 @@ function gameLoop() {
 }
 gameLoop();
 
-// things to do
 // readme
-// deploy online
