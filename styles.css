@@ -6,7 +6,8 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-image: url("https://i.pinimg.com/originals/8e/46/15/8e46150f790fbefe438d9c2767c32ad1.gif");
+  background-color: #333;
+  /* background-image: url("https://i.pinimg.com/originals/8e/46/15/8e46150f790fbefe438d9c2767c32ad1.gif");  */
 }
 
 #startScreen,
@@ -18,7 +19,8 @@ body {
   height: 600px;
   box-shadow: 0 0 40px rgba(90, 90, 239, 0.8),
     0 0 40px rgba(79, 0, 249, 0.6) inset;
-  background-image: url("https://i.pinimg.com/originals/8e/46/15/8e46150f790fbefe438d9c2767c32ad1.gif");
+  background-color: #333;
+  /* background-image: url("https://i.pinimg.com/originals/8e/46/15/8e46150f790fbefe438d9c2767c32ad1.gif"); */
 }
 
 #startScreen {
